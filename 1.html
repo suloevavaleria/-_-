@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо пользователя попросить ввести температуру в градусах Цельсия,
+преобразовать введенное пользователем значение в соответствующую температуру
+в градусах по Фаренгейту и вывести в alert сообщение с текстом:
+"Цельсий: {C}, Фаренгейт: {F}"
+Где вместо {C} и {F} должны быть подставлены соответствующие значения, которые
+были получены ранее.
+Формула перевода градусов Цельсия в градусы Фаренгейта:
+градусы Фаренгейта = (9 / 5) * градусы Цельсия + 32
+
+Уточнение: пользователь всегда вводит корректное число.
+-->
+<script>
+  "use strict";
+
+  // Здесь пишем решение, данный комментарий необходимо стереть.
+  alert("Задание №1");
+  function cToF(celsius) 
+{
+  var cTemp = celsius;
+  var cToFahr = cTemp * 9 / 5 + 32;
+  var message = cTemp+'\xB0C is ' + cToFahr + ' \xB0F.';
+    console.log(message);
+}
+function fToC(fahrenheit) 
+{
+  var fTemp = fahrenheit;
+  var fToCel = (fTemp - 32) * 5 / 9;
+  var message = fTemp+'\xB0F is ' + fToCel + '\xB0C.';
+    console.log(message);
+} 
+cToF(21);
+fToC(155);
+
+</script>
+</body>
+</html>
