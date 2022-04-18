@@ -1,31 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
-
 <body>
-  Создайте массив, состоящий из 5 элементов. (Элементами массива должны быть произвольные цифры в диапазоне от 0 до 10.)
-  Удалите значение 3, если будет такое значение.
-  Каждое значение исходного элемента массива необходимо увеличить на 10%.
-  Выведите в консоль два этих массива.
-  <script>
-    "use strict";
+  Необходимо вывести в консоль массив продуктов в котором есть хоть одна фотография используя метод filter. Исходные данные - массив products.
+  Необходимо отсортировать массив products используя метод sort по цене, начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
+  const products = [
+      {
+        id: 3,
+        price: 127,
+        photos: [
+          "1.jpg",
+          "2.jpg",
+        ],
+      },
+      {
+        id: 5,
+        price: 499,
+        photos: [],
+      },
+      {
+        id: 10,
+        price: 26,
+        photos: [
+          "3.jpg",
+        ],
+      },
+      {
+        id: 8,
+        price: 78,
+      },
+    ];
+<script>
+  "use strict";
 
-    const arr = [];
-    const arrFilter = [];
-    for (let i = 0; i < 5; i++) {
-      arr.push(Math.round(Math.random() * 10));
-    }
+  const products = [
+    {
+      id: 3,
+      price: 127,
+      photos: [
+        "1.jpg",
+        "2.jpg",
+      ],
+    },
+    {
+      id: 5,
+      price: 499,
+      photos: [],
+    },
+    {
+      id: 10,
+      price: 26,
+      photos: [
+        "3.jpg",
+      ],
+    },
+    {
+      id: 8,
+      price: 78,
+    },
+  ];
 
-    console.log(arr);
-    console.log(arr.filter(item => item !== 3));
-    console.log(arr.map(elem => elem += elem * 0.1));
+  console.log(products.filter(
+    product => "photos" in product && product.photos.length !== 0
+  ));
 
+  products.sort((product1, product2) => product1.price - product2.price);
+  console.log(products);
 
-  </script>
+</script>
 </body>
-
 </html>

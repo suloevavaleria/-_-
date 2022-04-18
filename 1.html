@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
-</head>
-<body>
-  1
-  Необходимо с помощью цикла for вывести следующие 11 строк в консоль:
-  0 – это ноль
-  1 – нечетное число
-  2 – четное число
-  3 – нечетное число
-  …
-  10 – четное число
-<script>
-  "use strict";
 
-  for (let i = 0; i <= 10; i++) {
-    if (i === 0) {
-      console.log(`${i} - это ноль`);
-    } else if (i % 2 === 1) {
-      console.log(`${i} - нечетное число`);
-    } else {
-      console.log(`${i} - четное число`);
-    }
-  }
-</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    Дан объект numbers. Необходимо в консоль вывести все значения больше или равные 3.
+
+const numbers = {
+keyin1: 1,
+keyin2: 2,
+keyin3: 3,
+keyin4: 4,
+keyin5: 5,
+keyin6: 6,
+keyin7: 7,
+}
+    <script>
+        "use strict";
+
+        console.log(Object.values(numbers).filter(item => item >= 3));
+    </script>
 </body>
+
 </html>
