@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  Создайте массив, состоящий из 5 элементов. (Элементами массива должны быть произвольные цифры в диапазоне от 0 до 10.)
+  Удалите значение 3, если будет такое значение.
+  Каждое значение исходного элемента массива необходимо увеличить на 10%.
+  Выведите в консоль два этих массива.
+  <script>
+    "use strict";
+
+    const arr = [];
+    const arrFilter = [];
+    for (let i = 0; i < 5; i++) {
+      arr.push(Math.round(Math.random() * 10));
+    }
+
+    console.log(arr);
+    console.log(arr.filter(item => item !== 3));
+    console.log(arr.map(elem => elem += elem * 0.1));
+
+
+  </script>
+</body>
+
+</html>

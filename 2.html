@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
-Обязательное задание.
+  Дан массив [1, 2, 3, 4, 5, 6, 7]
 
-Необходимо создать переменную name, записать в эту переменную свое имя.
-Необходимо также создать переменную admin и присвоить этой переменной значение
-из переменной name.
-Вывести значение переменной admin в консоль.
--->
-<script>
-  "use strict";
-
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-  
-
-  let name = prompt("Ваше имя?");
-alert(name); 
- name = "Lera";
- let message = 'admin'; 
- alert(message); // admin!
-</script>
+Сделайте из этого массива следующий [1, 2, 3, 6, 7]
+  <script>
+    "use strict";
+    const arr = [1, 2, 3, 4, 5, 6, 7];
+    arr.splice(3, 2);
+    console.log(arr);
+  </script>
 </body>
+
 </html>
