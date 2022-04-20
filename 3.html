@@ -1,48 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-  Дан массив products, необходимо цену каждого продукта уменьшить на 15% используя
-  метод forEach.
-  
-    const products = [
-      {
-        id: 3,
-        price: 200,
-      },
-      {
-        id: 4,
-        price: 900,
-      },
-      {
-        id: 1,
-        price: 1000,
-      },
-    ];
-<script>
-  "use strict";
+  Создайте массив, состоящий из 5 произвольных значений, которые генерируются программой (диапазон значений от 0 до 10).
 
-  const products = [
-    {
-      id: 3,
-      price: 200,
-    },
-    {
-      id: 4,
-      price: 900,
-    },
-    {
-      id: 1,
-      price: 1000,
-    },
-  ];
-
-  products.forEach(product => product.price *= 0.85);
-
-  
-</script>
+Возведите каждый элемент этого массива в квадрат
+  <script>
+    "use strict";
+    const arr = [];
+    for (let i = 0; i < 5; i++) {
+      arr.push(Math.round(Math.random() * 10));
+    }
+    console.log(arr)
+    console.log(arr.map(item => item ** 2));
+  </script>
 </body>
+
 </html>
