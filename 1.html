@@ -3,79 +3,130 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Homework 5</title>
+    <title>Homework</title>
 </head>
 
 <body>
-    1
+    <!--
+Обязательное задание.
 
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи не
+стирать, код с решением задачи пишем под комментарием.
+-->
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title" data-number="100">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text" data-number="50">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <a href="#" id="super_link" class="card-link">Card link</a>
-            <a href="#" class="card-link" data-number="50">Another link</a>
-        </div>
-    </div>
+    <p class="super_element">Привет</p>
+
+    <img src="https://placeimg.com/50/50/animals" alt="">
+    <img src="https://placeimg.com/50/50/arch" alt="">
+    <img src="https://placeimg.com/50/50/nature" alt="">
+    <img src="https://placeimg.com/50/50/people" alt="">
+    <img src="https://placeimg.com/50/50/tech" alt="">
+    <img src="https://placeimg.com/50/50/tech/grayscale" alt="">
+    <img src="https://placeimg.com/50/50/tech/sepia" alt="">
+
+    <br>
+
+    <button>Кнопка</button>
+    <button class="super_element">Кнопка с классом btn</button>
+    <button>Кнопка</button>
+
+    <br>
+
+    <textarea></textarea>
+
+    <br>
+
+    <ul>
+        <li>
+            <button>Кнопка 1</button>
+        </li>
+        <li>
+            <button>Кнопка 2</button>
+        </li>
+        <li>
+            <button>Кнопка 3</button>
+        </li>
+        <li>
+            <button>Кнопка 4</button>
+        </li>
+    </ul>
 
     <script>
         "use strict";
 
         /*
-        1. Найти по id, используя getElementById, элемент с id равным "super_link" и
-        вывести этот элемент в консоль.
-         */
-        console.log(document.getElementById('super_link'));
+        1. Необходимо вывести сообщение в консоль "все теги прогрузились", когда все
+        теги будут созданы браузером.
+        */
+        document.addEventListener(
+            'DOMContentLoaded',
+            () => console.log("все теги прогрузились")
+        );
 
         /*
-        2. Внутри всех элементов на странице, которые имеют класс "card-link",
-        поменяйте текст внутри элемента на "ссылка".
+        2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все
+        ресурсы страницы будут загружены.
+        */
+        window.addEventListener('load', () => console.log("страница загрузилась"));
+
+        /*
+        3. При клике на какой-либо тег на странице в консоль должно выводиться
+        сообщение наподобие:
+        Класс "super_element" присутствует в элементе "div".
+        сообщение должно определять присутствует или отсутствует класс "super_element"
+        у элемента, а также выводить в нижнем регистре верный тег в данной строке, по
+        которому был совершен клик.
+        Необходимо использовать делегирование.
+        */
+        document.addEventListener('click', event => {
+            const containStr = event.target.classList.contains('super_element') ?
+                'присутствует' : 'отсутствует';
+            console.log(`Класс "super_element" ${containStr} в элементе "${event.target.tagName.toLowerCase()}".`);
+        });
+
+        /*
+        4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
+        "Вы навели на textarea."
          */
         document
-            .querySelectorAll('.card-link')
-            .forEach(el => el.textContent = 'ссылка');
+            .querySelector('textarea')
+            .addEventListener('mouseover', () => console.log("Вы навели на textarea."));
 
         /*
-        3. Найти все элементы на странице с классом "card-link", которые лежат в
-        элементе с классом "card-body" и вывести полученную коллекцию в консоль.
+        5. Необходимо повесить событие клика на тег ul. В обработчике события в
+        консоль необходимо выводить текст, который записан внутри элемента кнопки,
+        по которой был произведен клик.
+        Если клик был не по кнопке, то ничего выводить не нужно.
+        Необходимо использовать делегирование.
          */
-        console.log(document.querySelectorAll('.card-body .card-link'));
+        document.querySelector('ul').addEventListener('click', event => {
+            if (event.target.tagName !== "BUTTON") {
+                return;
+            }
+            console.log(event.target.textContent);
+        });
 
         /*
-        4. Найти первый попавшийся элемент на странице у которого есть атрибут
-        data-number со значением 50 и вывести его в консоль.
-         */
-        console.log(document.querySelector('[data-number="50"]'));
+        6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только
+        потом выводится текст из 3 задания, если мы кликаем по кнопкам в ul?
+        Ответ необходимо написать здесь же, под этим комментарием, своими словами.
+        */
+        /*
+        Мы в задании 3 и 5 повесили события на разные теги, в задании 3 на document,
+        в задании 5 на тег ul. Событие при клике всплывает после погружения, то есть
+        идет от элемента по которому был клик в родительские элементы и нам сначала
+        встретиться тег ul и только потом document, поэтому и события выполняются в
+        таком порядке.
+        Когда мы вешаем событие на родительский элемент и обрабатываем события детей
+        этого элемента - это называется делегированием события.
+        */
 
         /*
-        5. Выведите содержимое тега title в консоль.
+        7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
          */
-        console.log(document.title);
-
-        /*
-        6. Получите элемент с классом "card-title" и выведите его родительский узел
-        в консоль.
-         */
-        console.log(document.querySelector('.card-title').parentNode);
-
-        /*
-        7. Создайте тег `p`, запишите внутри него текст "Привет" и добавьте созданный
-        тег в начало элемента, который имеет класс "card".
-         */
-        const pTag = document.createElement('p');
-        pTag.textContent = 'Привет';
-        document.querySelector('.card').prepend(pTag);
-
-        /*
-        8. Удалите тег h6 на странице.
-         */
-        document.querySelector('h6').remove();
+        document
+            .querySelectorAll('li:nth-child(2n)')
+            .forEach(el => el.style.backgroundColor = 'grey');
     </script>
 </body>
 
